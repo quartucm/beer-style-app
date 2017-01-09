@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const request = require('request');
 
 const app = express();
 
@@ -17,4 +18,8 @@ app.listen(port, (error) => {
     console.log(error); // eslint-disable-line no-console
   }
   console.info('Express is listening on port %s.', port); // eslint-disable-line no-console
+});
+
+request('http://api.brewerydb.com/v2/', (err, body) => {
+
 });
