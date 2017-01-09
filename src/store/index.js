@@ -3,6 +3,7 @@ import { createBrowserHistory } from 'history';
 // Redux utility functions
 import { compose, createStore, combineReducers, applyMiddleware } from 'redux';
 import { routerMiddleware, connectRouter } from 'connected-react-router';
+import thunk from 'redux-thunk';
 // Import all reducers
 import * as reducers from 'reducers';
 
@@ -14,7 +15,7 @@ const reducer = combineReducers({ ...reducers });
 
 const store = compose(
   // Enables your middleware:
-  // applyMiddleware(thunk), // any Redux middleware, e.g. redux-thunk
+  applyMiddleware(thunk), // any Redux middleware, e.g. redux-thunk
   applyMiddleware(routerMiddleware(history)),
   // Provides support for DevTools via Chrome extension
   window.devToolsExtension ? window.devToolsExtension() : f => f
