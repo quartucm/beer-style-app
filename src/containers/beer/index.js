@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from '../app.css';
 import { getStyleOfBeer } from 'actions/app';
+import BeerTile from '../../components/Beer/BeerTile'
 
 type Props = {
   dispatch: () => void
@@ -22,10 +23,7 @@ export class BeerContainer extends Component {
          <div className={styles.container}>
            {this.props.beerData.map((beer) => {
               return (
-                <div key={beer.id}>
-                <h1>{beer.shortName}</h1>
-                <p>{beer.description}</p>
-                </div>
+                <BeerTile {...beer} key={beer.id} />
                 )
             })}
           </div>
