@@ -6,10 +6,15 @@ const initialState = {
 };
 
 const getBeerData = (state, action) => {
+
+  // console.log('state:',state);
+  // console.log('action',action)
   // const newBeerData = {}
-  // Object.assign(newBeerData, state.beerData, {beerData:action.beerData})
+  // Object.assign(newBeerData, state.beerData, {beerData: action.beerData.data})
   const newState = {}
-  Object.assign(newState, state, {beerData: action.beerData})
+  Object.assign(newState, state, {beerData: action.beerData.data})
+  // console.log('action',newBeerData)
+  // console.log('newstate',newState);
   return newState
 }
 
