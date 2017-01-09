@@ -13,7 +13,6 @@ type Props = {
 export class AppContainer extends Component {
   componentDidMount() {
     this.props.dispatch(loadApp());
-    this.props.dispatch(getBeerData());
   }
 
   props: Props;
@@ -22,7 +21,6 @@ export class AppContainer extends Component {
     if (!this.props.loaded) {
       return null;
     }
-    console.log(this.props.beerData);
     return (
       <div className={styles.container}>
         <Header />
@@ -35,7 +33,6 @@ export class AppContainer extends Component {
 function mapStateToProperties(state) {
   return {
     loaded: state.app.loaded,
-    beerData: state.app.beerData
   };
 }
 

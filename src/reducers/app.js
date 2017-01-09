@@ -10,7 +10,7 @@ export default function app(state = initialState, action) {
     case APP_LOAD:
       return { ...state, loaded: true };
     case GET_BEER_DATA:
-      return {...state, beerData:'butt'};
+      return {...state, beerData:{'Some test data':'Data from reducer'}};
     default:
       return state;
   }
