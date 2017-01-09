@@ -8,6 +8,7 @@ export function loadApp() {
 }
 
 export function getBeerData (data) {
+	console.log(data)
   return {
     type: GET_BEER_DATA,
     beerData: data

@@ -13,9 +13,11 @@ export class BeerContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(getStyleOfBeer());
+
   }
 
   props: Props;
+
 
   render() {
     if (!this.props.beerData) {
@@ -23,9 +25,12 @@ export class BeerContainer extends Component {
     }
     return (
       <div className={styles.container}>
-        {JSON.stringify(this.props.beerData)}
+       
+        <h1></h1>
+  
+
       </div>
-    );
+        );
   }
 }
 
