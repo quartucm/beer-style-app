@@ -1,8 +1,9 @@
-import { APP_LOAD, GET_BEER_DATA } from 'constants/action-types';
+import { APP_LOAD, GET_BEER_DATA, AJAX_DONE } from 'constants/action-types';
 
 const initialState = {
   loaded: false,
-  beerData: {}
+  beerData: {},
+  apiLoad : false
 };
 
 const getBeerData = (state, action) => {
@@ -24,6 +25,8 @@ export default function app(state = initialState, action) {
       return { ...state, loaded: true };
     case GET_BEER_DATA:
      return getBeerData(state, action)
+    case AJAX_DONE:
+      return { ... state, apiLoad: true}
     default:
       return state;
   }

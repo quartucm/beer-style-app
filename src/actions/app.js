@@ -1,4 +1,4 @@
-import { APP_LOAD, GET_BEER_DATA } from 'constants/action-types';
+import { APP_LOAD, GET_BEER_DATA, AJAX_DONE } from 'constants/action-types';
 import axios from 'axios';
 
 export function loadApp() {
@@ -14,11 +14,18 @@ export function getBeerData (data) {
   }
 }
 
+export function ajaxComplete () {
+	return {
+		type: AJAX_DONE
+	}
+}
+
 export function getStyleOfBeer() {
 	return function (dispatch, getState) {
 		axios.get(`http://localhost:8181/beer`)
 	        .then((response) => {
 	          dispatch(getBeerData(response.data));
+	          dispatch(ajaxComplete())
 	        })
 	        .catch((error) => {
 	          console.error('axios error', error)

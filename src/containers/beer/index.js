@@ -16,24 +16,32 @@ export class BeerContainer extends Component {
   props: Props;
 
   render() {
-    return (
-       <div className={styles.container}>
-        {this.props.beerData.map((beer) => {
-            return (
-              <div key={beer.id}>
+    let loaded = this.props.apiLoad;
+    if (loaded) {
+      return (
+         <div className={styles.container}>
+           {this.props.beerData.map((beer) => {
+              return (
+                <div key={beer.id}>
                 <h1>{beer.shortName}</h1>
                 <p>{beer.description}</p>
-              </div>
-              )
-          })}
-      </div>
-    );
+                </div>
+                )
+            })}
+          </div>
+       );
+    } else {
+      return (
+        <div>Loading...</div>
+        )
+    }
   }
 }
 
 function mapStateToProperties(state) {
   return {
     beerData: state.app.beerData,
+    apiLoad : state.app.apiLoad
   };
 }
 
