@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const request = require('request');
-const API_KEY = '35c978fd032c532678c30e3e43929f4d';
+import config from './config';
 
 const app = express();
 
@@ -34,7 +34,7 @@ app.get('/beer', function(req, res){
 	// 	res.send({"Error": "Looks like you are not senging the product id to get the product details."}); 
 	// 	console.log("Looks like you are not senging the product id to get the product detsails."); 
 	// } 
-	request.get({ url: `http://api.brewerydb.com/v2/styles?format=json&key=35c978fd032c532678c30e3e43929f4d` }, function(error, response, body) { 
+	request.get({ url: `http://api.brewerydb.com/v2/styles?format=json&key=${config.default.API_KEY}` }, function(error, response, body) { 
 		if (!error && response.statusCode == 200) { 
 			res.send(body); 
 		} 
