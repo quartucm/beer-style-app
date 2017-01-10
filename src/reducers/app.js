@@ -14,8 +14,10 @@ const getBeerData = (state, action) => {
 }
 
 const styleBeerData = (state, action) => {
+  const styleBeerData = {}
+  Object.assign(styleBeerData, state.styleData, {[action.styleData.data.id]: action.styleData.data})
   const newState = {}
-  Object.assign(newState, state, {styleData: action.styleData.data})
+  Object.assign(newState, state, {styleData:styleBeerData})
   return newState
 }
 

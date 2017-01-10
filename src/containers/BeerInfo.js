@@ -4,25 +4,28 @@ import { getStyleData } from 'actions/app';
 
 const BeerInfo = React.createClass({
 	componentDidMount() {
-		// if(!this.props.beerData) {
-		this.props.dispatch(getStyleData(this.props.id));
-		// }
+		if(!this.props.styleData[this.props.id]) {
+	     	this.props.dispatch(getStyleData(this.props.id));
+		}
+		console.log(this.props);
+
 	},
 	render() {
-		const { description, shortName } = this.props.styleData;
+		const { shortName, description } = this.props.styleData;
 		return (
 			<div>
 				<h1>{shortName}</h1>
-				<div>{description}</div>
+				<p>{description}</p>
 			</div>
 		);
 	}
 });
 
 function mapStateToProperties(state, ownProps) {
+  const styleData = state.app.styleData[ownProps.params.id] ? state.app.styleData[ownProps.params.id] : {};
   return {
-  	id: ownProps.params.id,
-  	styleData: state.app.styleData
+  	styleData,
+  	id: ownProps.params.id
   };
 }
 

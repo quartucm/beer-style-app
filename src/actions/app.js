@@ -7,9 +7,10 @@ export function loadApp() {
   };
 }
 
-export function gotStyleData(styleData) {
+export function gotStyleData(id, styleData) {
   return {
     type: GET_STYLE_ID,
+    id,
     styleData
   };
 }
@@ -18,7 +19,7 @@ export function getStyleData(id) {
 	return function (dispatch, state) {
 		axios.get(`http://localhost:8181/beer/${id}`)
 	        .then((response) => {
-	          dispatch(gotStyleData(response.data));
+	          dispatch(gotStyleData(id, response.data));
 	          // dispatch(ajaxComplete())
 	        })
 	        .catch((error) => {
@@ -26,3 +27,4 @@ export function getStyleData(id) {
 	    })
 	}
 };
+
