@@ -5,10 +5,8 @@ import { getStyleData } from 'actions/app';
 const BeerInfo = React.createClass({
 	componentDidMount() {
 		if(!this.props.styleData[this.props.id]) {
-	     	this.props.dispatch(getStyleData(this.props.id));
+			this.props.dispatch(getStyleData(this.props.id));
 		}
-		console.log(this.props);
-
 	},
 	render() {
 		const { shortName, description } = this.props.styleData;
@@ -22,7 +20,7 @@ const BeerInfo = React.createClass({
 });
 
 function mapStateToProperties(state, ownProps) {
-  const styleData = state.app.styleData[ownProps.params.id] ? state.app.styleData[ownProps.params.id] : {};
+  const styleData = state.app.styleData ? state.app.styleData : {};
   return {
   	styleData,
   	id: ownProps.params.id

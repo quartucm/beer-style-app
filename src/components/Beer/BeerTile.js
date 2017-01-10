@@ -6,7 +6,7 @@ const BeerTile = React.createClass({
  	render() {
  		const { shortName, description, id } = this.props
  		return (
- 		<Link to={`BeerInfo/${id}`}>
+ 		<Link to={`beerInfo/${id}`}>
 	 		<div>
 				<h1>{shortName}</h1>
 				{/*<p>{description}</p>*/}
