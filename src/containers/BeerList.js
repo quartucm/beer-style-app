@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styles from '../app.css';
-import { getStyleOfBeer } from 'actions/app';
-import BeerTile from '../../components/Beer/BeerTile'
+import styles from './app.css';
+import { getStyleOfBeer } from 'actions/getBeerStyle';
+import BeerTile from '../components/Beer/BeerTile'
 
 type Props = {
   dispatch: () => void

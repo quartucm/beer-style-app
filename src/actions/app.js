@@ -1,4 +1,4 @@
-import { APP_LOAD, GET_BEER_DATA, AJAX_DONE } from 'constants/action-types';
+import { APP_LOAD, GET_STYLE_ID } from 'constants/action-types';
 import axios from 'axios';
 
 export function loadApp() {
@@ -7,25 +7,19 @@ export function loadApp() {
   };
 }
 
-export function getBeerData (data) {
+export function gotStyleData(styleData) {
   return {
-    type: GET_BEER_DATA,
-    beerData: data
-  }
+    type: GET_STYLE_ID,
+    styleData
+  };
 }
 
-export function ajaxComplete () {
-	return {
-		type: AJAX_DONE
-	}
-}
-
-export function getStyleOfBeer() {
-	return function (dispatch, getState) {
-		axios.get(`http://localhost:8181/beer`)
+export function getStyleData(id) {
+	return function (dispatch, state) {
+		axios.get(`http://localhost:8181/beer/${id}`)
 	        .then((response) => {
-	          dispatch(getBeerData(response.data));
-	          dispatch(ajaxComplete())
+	          dispatch(gotStyleData(response.data));
+	          // dispatch(ajaxComplete())
 	        })
 	        .catch((error) => {
 	          console.error('axios error', error)

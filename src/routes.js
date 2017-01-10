@@ -1,11 +1,12 @@
 import React from 'react';
-import { Match } from 'react-router';
+import { Match, Miss, Redirect } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from 'store/index';
 import Layout from 'containers/layout';
 import App from 'containers/app';
-import Beer from 'containers/beer';
-import BeerInfo from 'components/Beer/BeerInfo';
+import Beer from 'containers/BeerList';
+import BeerInfo from 'containers/BeerInfo';
+import NotFound from 'components/NotFound';
 
 const routes = (
   <ConnectedRouter history={history}>
@@ -13,6 +14,8 @@ const routes = (
       <Match exactly pattern="/" component={App} />
       <Match exactly pattern="/beer" component={Beer} />
       <Match pattern="/beerInfo/:id" component={BeerInfo} />
+      <Miss component={NotFound} />
+
     </Layout>
   </ConnectedRouter>
 );

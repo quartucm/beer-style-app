@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const request = require('request');
 import config from './config';
+import qs from 'qs';
 
 const app = express();
 
@@ -34,12 +35,31 @@ app.get('/beer', function(req, res){
 	// 	res.send({"Error": "Looks like you are not senging the product id to get the product details."}); 
 	// 	console.log("Looks like you are not senging the product id to get the product detsails."); 
 	// } 
-	request.get({ url: `http://api.brewerydb.com/v2/styles?format=json&key=${config.default.API_KEY}` }, function(error, response, body) { 
+	request.get({ url: `http://api.brewerydb.com/v2/styles?${qs.stringify({
+		format: 'json',
+		key: `${config.default.API_KEY}`
+	})}`}, function(error, response, body) { 
 		if (!error && response.statusCode == 200) { 
 			res.send(body); 
 		} 
 	}); 
 });
+app.get('/beer/:id', function(req, res){
+	if (!req.params.id) { 
+		res.status(500); 
+		res.send({"Error": "There seems to be no ID"}); 
+		console.log("ERROR! No ID passed"); 
+	} 
+	request.get({ url: `http://api.brewerydb.com/v2/style/${req.params.id}?${qs.stringify({
+		format: 'json',
+		key: `${config.default.API_KEY}`
+	})}`}, function(error, response, body) { 
+		if (!error && response.statusCode == 200) { 
+			res.send(body); 
+		} 
+	}); 
+});
+
 
 
 app.listen(port, (error) => {
