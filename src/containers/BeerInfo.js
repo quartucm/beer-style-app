@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getStyleData } from 'actions/app';
+import { getStyleOfBeer } from 'actions/getBeerStyle';
 
 const BeerInfo = React.createClass({
 	componentDidMount() {
-		if(!this.props.styleData.id) {
-			this.props.dispatch(getStyleData(this.props.id));
-		}
+		if (!this.props.beerData.id) {
+	       this.props.dispatch(getStyleOfBeer());
+	    }
+	    console.log(this.props.id)
 
 	},
 	render() {
-		const { shortName, description } = this.props.styleData;
+		const { shortName, description } = this.props.beerData;	
 
-		if (!this.props.styleData) {
+		console.log(this.props.beerData);
+
+		if (!this.props.beerData) {
 			return null
 		}
 
@@ -27,9 +30,9 @@ const BeerInfo = React.createClass({
 });
 
 function mapStateToProperties(state, ownProps) {
-  const styleData = state.app.styleData[ownProps.params.id] ? state.app.styleData[ownProps.params.id] : {};
+  const beerData = state.app.beerData[ownProps.params.id - 1] ? state.app.beerData[ownProps.params.id - 1] : {};
   return {
-  	styleData,
+  	beerData,
   	id: ownProps.params.id
   };
 }
