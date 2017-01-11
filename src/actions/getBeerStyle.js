@@ -1,5 +1,6 @@
 import { GET_BEER_STYLE_DATA, AJAX_DONE } from 'constants/action-types';
 import axios from 'axios';
+import apiConfig from '../apiConfig';
 
 export function ajaxComplete () {
 	return {
@@ -16,43 +17,13 @@ export function gotBeerStyle (data) {
 
 export function getStyleOfBeer() {
 	return function (dispatch, getState) {
-		axios.get(`http://localhost:8181/beer`)
+		axios.get(`${apiConfig.api}/beer`)
 	        .then((response) => {
 	          dispatch(gotBeerStyle(response.data));
 	          dispatch(ajaxComplete())
 	        })
 	        .catch((error) => {
-	          console.error('axios error', error)
+	          console.error('Axios Error in getting style of beer', error)
 	    })
 	}
 };
-
-// function shouldFetchPosts(state, subreddit) {
-//   // const posts = state.beerData
-//   console.log(state);
-//   debugger;
-//   if (!posts) {
-//     return true
-//   } else {
-//     return posts.didInvalidate
-//   }
-// }
-
-// export function fetchPostsIfNeeded(subreddit) {
-
-//   // Note that the function also receives getState()
-//   // which lets you choose what to dispatch next.
-
-//   // This is useful for avoiding a network request if
-//   // a cached value is already available.
-
-//   return (dispatch, getState) => {
-//     if (shouldFetchPosts(getState(), subreddit)) {
-//       // Dispatch a thunk from thunk!
-//       return dispatch(getStyleOfBeer())
-//     } else {
-//       // Let the calling code know there's nothing to wait for.
-//       return Promise.resolve()
-//     }
-//   }
-// }

@@ -15,7 +15,6 @@ const routes = (
       <Match exactly pattern="/beer" component={Beer} />
       <Match pattern="/beerInfo/:id" component={BeerInfo} />
       <Miss component={NotFound} />
-
     </Layout>
   </ConnectedRouter>
 );

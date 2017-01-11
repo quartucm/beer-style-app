@@ -11,7 +11,9 @@ type Props = {
 export class BeerContainer extends Component {
 
   componentDidMount() {
-    this.props.dispatch(getStyleOfBeer());
+    if (!this.props.beerData[0]) {
+      this.props.dispatch(getStyleOfBeer());
+    }
   }
 
   props: Props;

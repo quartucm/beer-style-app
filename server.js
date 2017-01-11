@@ -1,8 +1,10 @@
 const path = require('path');
 const express = require('express');
 const request = require('request');
-import config from './config';
+import config from './server/config';
 import qs from 'qs';
+
+const allowed = ['http://localhost:8080', 'https://beer-style-app.herokuapp.com/']
 
 const app = express();
 
@@ -17,24 +19,19 @@ app.get('/', (req, res) => {
 
 //CORS
 app.get('*', (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+	const origin = req.headers.origin;
+	if (allowed.indexOf(origin) > -1) {
+		res.header("Access-Control-Allow-Origin", origin);
+	}
     res.header("Access-Control-Allow-Methods", "GET");
     res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers'));
 
-    if (req.method === 'OPTIONS') {
-        // CORS Preflight
-        res.send();
-    } else {
-        next();
-    }
+
+    next();
+    
 });
 
 app.get('/beer', function(req, res){
-	// if (!req.params.id) { 
-	// 	res.status(500); 
-	// 	res.send({"Error": "Looks like you are not senging the product id to get the product details."}); 
-	// 	console.log("Looks like you are not senging the product id to get the product detsails."); 
-	// } 
 	request.get({ url: `http://api.brewerydb.com/v2/styles?${qs.stringify({
 		format: 'json',
 		key: `${config.default.API_KEY}`
@@ -60,6 +57,10 @@ app.get('/beer/:id', function(req, res){
 	}); 
 });
 
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('There was an error')
+})
 
 
 app.listen(port, (error) => {

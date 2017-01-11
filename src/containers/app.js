@@ -23,7 +23,6 @@ export class AppContainer extends Component {
     }
     return (
       <div className={styles.container}>
-        <Header />
         <Home />
       </div>
     );
