@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadApp, getBeerData } from 'actions/app';
-import styles from './app.css';
 import Header from '../components/Header/Header';
 import Home from '../components/Home/Home';
+import styles from './app.scss';
+
 
 type Props = {
   dispatch: () => void,
@@ -22,8 +23,14 @@ export class AppContainer extends Component {
       return null;
     }
     return (
-      <div className={styles.container}>
+
+      <div>
         <Home />
+        <div className="pure-g">
+        <div className="pure-u-1-3"><p>Thirds</p></div>
+        <div className="pure-u-1-3"><p>Thirds</p></div>
+        <div className="pure-u-1-3"><p>Thirds</p></div>
+    </div>
       </div>
     );
   }

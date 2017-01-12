@@ -7,13 +7,9 @@ const BeerInfo = React.createClass({
 		if (!this.props.beerData.id) {
 	       this.props.dispatch(getStyleOfBeer());
 	    }
-	    console.log(this.props.id)
-
 	},
 	render() {
 		const { shortName, description } = this.props.beerData;	
-
-		console.log(this.props.beerData);
 
 		if (!this.props.beerData) {
 			return null
