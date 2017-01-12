@@ -9,17 +9,26 @@ const BeerInfo = React.createClass({
 	    }
 	},
 	render() {
-		const { shortName, description } = this.props.beerData;	
+		const { name, description, ibuMin, ibuMax } = this.props.beerData;	
+		let hideText;
 
 		if (!this.props.beerData) {
+			hideText = '';
 			return null
+		} else {
+			hideText = (
+				<b>ibu Range:</b> 
+			)
 		}
 
 		return (
 	
-			<div>
-				<h1>{shortName}</h1>
-				<p>{description}</p>
+			<div className='row'>
+				<div className='small-8 small-centered columns'>
+					<h2>{name}</h2>
+					<p>{hideText} {ibuMin} - {ibuMax}</p>
+					<p>{description}</p>
+				</div>
 			</div>
 		);
 	}

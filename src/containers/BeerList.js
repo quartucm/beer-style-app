@@ -22,7 +22,7 @@ export class BeerContainer extends Component {
     let loaded = this.props.apiLoad;
     if (loaded) {
       return (
-         <div className='pure-g'>
+         <div className='row'>
            {this.props.beerData.map((beer) => {
               return (
                 <BeerTile {...beer} key={beer.id} />

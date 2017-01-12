@@ -5,11 +5,11 @@ import styles from './BeerTileStyle.scss';
  
 const BeerTile = React.createClass({
  	render() {
- 		const { shortName, description, id } = this.props
+ 		const { name, description, id } = this.props
  		return (
-	 		<Link to={`beerInfo/${id}`}>
-		 		<div className={`pure-u-1-3 ${styles.beerTile}`}>
-					<h1>{shortName}</h1>
+	 		<Link to={`beerInfo/${id}`} className={`small-12 medium-4 columns ${styles.beerTile}`}>
+		 		<div>
+					<p>{name}</p>
 				</div>
 			</Link>
  		);
