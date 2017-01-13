@@ -13,7 +13,7 @@ const dist = path.join(__dirname, 'dist');
 
 app.use(express.static(dist));
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
 	res.sendFile(path.join(dist, 'index.html'));
 });
 
@@ -25,10 +25,7 @@ app.get('*', (req, res, next) => {
 	}
     res.header("Access-Control-Allow-Methods", "GET");
     res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers'));
-
-
     next();
-    
 });
 
 app.get('/beer', function(req, res){
@@ -41,21 +38,21 @@ app.get('/beer', function(req, res){
 		} 
 	}); 
 });
-app.get('/beer/:id', function(req, res){
-	if (!req.params.id) { 
-		res.status(500); 
-		res.send({"Error": "There seems to be no ID"}); 
-		console.log("ERROR! No ID passed"); 
-	} 
-	request.get({ url: `http://api.brewerydb.com/v2/style/${req.params.id}?${qs.stringify({
-		format: 'json',
-		key: `${config.default.API_KEY}`
-	})}`}, function(error, response, body) { 
-		if (!error && response.statusCode == 200) { 
-			res.send(body); 
-		} 
-	}); 
-});
+// app.get('/beer/:id', function(req, res){
+// 	if (!req.params.id) { 
+// 		res.status(500); 
+// 		res.send({"Error": "There seems to be no ID"}); 
+// 		console.log("ERROR! No ID passed"); 
+// 	} 
+// 	request.get({ url: `http://api.brewerydb.com/v2/style/${req.params.id}?${qs.stringify({
+// 		format: 'json',
+// 		key: `${config.default.API_KEY}`
+// 	})}`}, function(error, response, body) { 
+// 		if (!error && response.statusCode == 200) { 
+// 			res.send(body); 
+// 		} 
+// 	}); 
+// });
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
