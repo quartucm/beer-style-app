@@ -13,7 +13,7 @@ const dist = path.join(__dirname, 'dist');
 
 app.use(express.static(dist));
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
 	res.sendFile(path.join(dist, 'index.html'));
 });
 
@@ -29,7 +29,7 @@ app.get('*', (req, res, next) => {
 });
 
 app.get('/beer', function(req, res){
-	request.get({ url: `http://api.brewerydb.com/v2/styles?${qs.stringify({
+	request.get({ url: `https://api.brewerydb.com/v2/styles?${qs.stringify({
 		format: 'json',
 		key: `${config.default.API_KEY}`
 	})}`}, function(error, response, body) { 

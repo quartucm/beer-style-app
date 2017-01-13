@@ -3,7 +3,7 @@ const apiConfig = {
 		'api' : 'http://localhost:8181'
 	},
 	'beer-style-app.herokuapp.com' : {
-		'api' : 'http://beer-style-app.herokuapp.com:8181'
+		'api' : 'https://beer-style-app.herokuapp.com:8181'
 	}
 
 }[window.location.hostname]
