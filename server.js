@@ -31,7 +31,7 @@ app.get('*', (req, res, next) => {
 app.get('/beer', function(req, res){
 	request.get({ url: `https://api.brewerydb.com/v2/styles?${qs.stringify({
 		format: 'json',
-		key: `${config.default.API_KEY}`
+		key: process.env.API_KEY ? process.env.API_KEY : `${config.default.API_KEY}`
 	})}`}, function(error, response, body) { 
 		if (!error && response.statusCode == 200) { 
 			res.send(body); 
