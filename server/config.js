@@ -6,7 +6,7 @@ try {
 }
 catch (e) {
     if (e instanceof Error && e.code === "MODULE_NOT_FOUND")
-   		conosle.log('No key');
+    	Object.assign(config, {API_KEY: process.env.API_KEY});
     else
         throw e;
 }
