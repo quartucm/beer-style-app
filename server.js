@@ -4,7 +4,7 @@ const request = require('request');
 import config from './server/config';
 import qs from 'qs';
 
-const allowed = ['http://localhost:8080', 'https://beer-style-app.herokuapp.com/']
+const allowed = ['https://localhost:8080', 'https://beer-style-app.herokuapp.com/']
 
 const app = express();
 
