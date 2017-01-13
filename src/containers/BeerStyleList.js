@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPostsIfNeeded, getStyleOfBeer } from 'actions/getBeerStyle';
+import { getStyleOfBeer } from 'actions/getBeerStyle';
 import BeerTile from '../components/Beer/BeerTile';
 import styles from './app.scss';
 

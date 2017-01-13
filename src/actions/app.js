@@ -1,4 +1,4 @@
-import { APP_LOAD, GET_STYLE_ID } from 'constants/action-types';
+import { APP_LOAD } from 'constants/action-types';
 import axios from 'axios';
 
 export function loadApp() {

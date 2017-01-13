@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getStyleOfBeer } from 'actions/getBeerStyle';
 import BeerListContainer from './BeerListContainer';
-import BeerList from './BeerList';
 
 const BeerInfo = React.createClass({
 	componentDidMount() {
@@ -22,7 +21,6 @@ const BeerInfo = React.createClass({
 				<b>ibu Range:</b> 
 			)
 		}
-
 		return (
 	
 			<div className='row'>
@@ -32,9 +30,7 @@ const BeerInfo = React.createClass({
 					<p>{description}</p>
 				</div>
 				<div className='small-4 columns'>
-					<BeerListContainer>
-						<BeerList />
-					</BeerListContainer>
+					<BeerListContainer id={this.props.id} />
 				</div>
 			</div>
 		);

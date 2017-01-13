@@ -38,6 +38,21 @@ app.get('/beer', function(req, res){
 		} 
 	}); 
 });
+app.get('/beerStyle', function(req, res){
+	if(!req.query.id) {
+		res.status(500).send('Error: something went wrong. Please pass in an ID');
+		console.log('Missing an ID!');
+	}
+	request.get({ url: `https://api.brewerydb.com/v2/beers?${qs.stringify({
+		styleId: req.query.id,
+		format: 'json',
+		key: config.API_KEY
+	})}`}, function(error, response, body) { 
+		if (!error && response.statusCode == 200) { 
+			res.send(body); 
+		} 
+	}); 
+});
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
