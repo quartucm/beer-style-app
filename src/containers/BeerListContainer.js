@@ -5,9 +5,9 @@ import BeerListItem from '../components/BeerListItem/BeerListItem';
 
 export const BeerListContainer = React.createClass({
 	componentDidMount() {
-		if (!this.props.styleOfBeerList[0]) {
+		//if (!this.props.styleOfBeerList[0]) {
 			this.props.dispatch(getListOfBeerByStyle(this.props.id));
-		}
+		//}
 	},
 	render() {
 
