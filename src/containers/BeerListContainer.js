@@ -12,15 +12,17 @@ export const BeerListContainer = React.createClass({
 	render() {
 
 		return (
-			<div>
-				<h5>Beers with this style</h5>
-					{this.props.styleOfBeerList.map((beer) => {
-						return (
-							<p>{beer.name}</p>
-							// <BeerListItem {...beer} key={beer.id} />
-						)
-					})}
-			</div>
+			
+				<div className='small-4 columns'>
+					<h5>Beers with this style</h5>
+						{this.props.styleOfBeerList.map((beer) => {
+							return (
+								<p key={beer.id}>{beer.name}</p>
+								// <BeerListItem {...beer} key={beer.id} />
+							)
+						})}
+				</div>
+		
 			);
 	}
 });

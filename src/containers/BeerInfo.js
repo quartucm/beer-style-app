@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getStyleOfBeer } from 'actions/getBeerStyle';
+import BeerDetail from '../components/BeerDetail/BeerDetail';
 import BeerListContainer from './BeerListContainer';
 
 const BeerInfo = React.createClass({
@@ -10,28 +11,10 @@ const BeerInfo = React.createClass({
 	    }
 	},
 	render() {
-		const { name, description, ibuMin, ibuMax } = this.props.beerData;	
-		let hideText;
-
-		if (!this.props.beerData) {
-			hideText = '';
-			return null
-		} else {
-			hideText = (
-				<b>ibu Range:</b> 
-			)
-		}
 		return (
-	
 			<div className='row'>
-				<div className='small-8 columns'>
-					<h2>{name}</h2>
-					<p>{hideText} {ibuMin} - {ibuMax}</p>
-					<p>{description}</p>
-				</div>
-				<div className='small-4 columns'>
-					<BeerListContainer id={this.props.id} />
-				</div>
+				<BeerDetail {...this.props.beerData} />
+				<BeerListContainer id={this.props.id} key={this.props.id}/>
 			</div>
 		);
 	}
