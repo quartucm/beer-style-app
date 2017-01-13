@@ -1,6 +1,5 @@
 import { APP_LOAD, GET_STYLE_ID } from 'constants/action-types';
 import axios from 'axios';
-import apiConfig from '../apiConfig';
 
 export function loadApp() {
   return {
@@ -18,7 +17,7 @@ export function gotStyleData(id, styleData) {
 
 export function getStyleData(id) {
 	return function (dispatch, state) {
-		axios.get(`${apiConfig.api}/beer/${id}`)
+		axios.get(`/beer/${id}`)
 	        .then((response) => {
 	          dispatch(gotStyleData(id, response.data));
 	        })
