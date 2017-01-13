@@ -26,4 +26,4 @@ export function getStyleOfBeer() {
 	          console.error('Axios Error in getting style of beer', error)
 	    })
 	}
-};
+}

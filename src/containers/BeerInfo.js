@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getStyleOfBeer } from 'actions/getBeerStyle';
+import BeerListContainer from './BeerListContainer';
+import BeerList from './BeerList';
 
 const BeerInfo = React.createClass({
 	componentDidMount() {
@@ -24,10 +26,15 @@ const BeerInfo = React.createClass({
 		return (
 	
 			<div className='row'>
-				<div className='small-8 small-centered columns'>
+				<div className='small-8 columns'>
 					<h2>{name}</h2>
 					<p>{hideText} {ibuMin} - {ibuMax}</p>
 					<p>{description}</p>
+				</div>
+				<div className='small-4 columns'>
+					<BeerListContainer>
+						<BeerList />
+					</BeerListContainer>
 				</div>
 			</div>
 		);
