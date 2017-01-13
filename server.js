@@ -38,21 +38,6 @@ app.get('/beer', function(req, res){
 		} 
 	}); 
 });
-// app.get('/beer/:id', function(req, res){
-// 	if (!req.params.id) { 
-// 		res.status(500); 
-// 		res.send({"Error": "There seems to be no ID"}); 
-// 		console.log("ERROR! No ID passed"); 
-// 	} 
-// 	request.get({ url: `http://api.brewerydb.com/v2/style/${req.params.id}?${qs.stringify({
-// 		format: 'json',
-// 		key: `${config.default.API_KEY}`
-// 	})}`}, function(error, response, body) { 
-// 		if (!error && response.statusCode == 200) { 
-// 			res.send(body); 
-// 		} 
-// 	}); 
-// });
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
