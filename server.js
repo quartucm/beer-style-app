@@ -1,6 +1,6 @@
-const path = require('path');
-const express = require('express');
-const request = require('request');
+import path from 'path';
+import express from 'express';
+import request from 'request';
 import config from './server/config';
 import qs from 'qs';
 
