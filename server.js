@@ -4,6 +4,11 @@ import request from 'request';
 import config from './server/config';
 import qs from 'qs';
 
+import { Provider } from 'react-redux';
+import { renderToString } from 'react-dom/server'
+import { match, RouterContext } from 'react-router'
+import routes from './src/routes'
+
 const allowed = ['http://localhost:8080', 'https://beer-style-app.herokuapp.com/']
 
 const app = express();
@@ -12,6 +17,28 @@ const port = process.env.PORT ? process.env.PORT : 8181;
 const dist = path.join(__dirname, 'dist');
 
 app.use(express.static(dist));
+
+app.use((req, res) => {
+  // Note that req.url here should be the full URL path from
+  // the original request, including the query string.
+  match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+    if (error) {
+      res.status(500).send(error.message)
+    } else if (redirectLocation) {
+      res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+    } else if (renderProps) {
+      // You can also check renderProps.components or renderProps.routes for
+      // your "not found" component or route respectively, and send a 404 as
+      // below, if you're using a catch-all route.
+      res.status(200).send(renderToString(
+          <Provider store={store}>
+            { <RouterContext {...renderProps}/> }
+          </Provider>))
+    } else {
+      res.status(404).send('Not found')
+    }
+  })
+})
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(dist, 'index.html'));

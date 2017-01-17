@@ -1,4 +1,4 @@
-import { APP_LOAD, GET_BEER_STYLE_DATA, AJAX_DONE, GET_BEERS_BY_STYLE } from 'constants/action-types';
+import { APP_LOAD, GET_BEER_STYLE_DATA, AJAX_DONE, GET_BEERS_BY_STYLE } from '../constants/action-types';
 
 const initialState = {
   loaded: false,

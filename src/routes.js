@@ -1,7 +1,7 @@
 import React from 'react';
 import { Match, Miss, Redirect } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
-import { history } from 'store/index';
+import { history } from './store/index';
 import Layout from 'containers/layout';
 import App from 'containers/app';
 import BeerStyleList from 'containers/BeerStyleList';
