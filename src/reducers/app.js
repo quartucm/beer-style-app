@@ -15,7 +15,7 @@ const getBeerData = (state, action) => {
 
 const getBeersByStyle = (state, action) => {
   const newState = {}
-  Object.assign(newState, state, {styleOfBeerList: action.data.data});
+  Object.assign(newState, state, {styleOfBeerList: action.data.data, isFetching: false});
   return newState;
 }
 
