@@ -8,7 +8,7 @@ export function ajaxComplete () {
 	}
 }
 
-export function gotBeerStyle (data) {
+function gotBeerStyle (data) {
   return {
     type: GET_BEER_STYLE_DATA,
     beerData: data

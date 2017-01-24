@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getStyleOfBeer } from 'actions/getBeerStyle';
 import BeerTile from '../components/Beer/BeerTile';
 import styles from './app.scss';
+import Loading from '../components/Loading';
 
 type Props = {
   dispatch: () => void
@@ -32,7 +33,7 @@ export class BeerStyleList extends Component {
        );
     } else {
       return (
-        <div>Loading...</div>
+        <Loading/>
         )
     }
   }

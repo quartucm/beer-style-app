@@ -10,15 +10,11 @@ const initialState = {
 };
 
 const getBeerData = (state, action) => {
-  const newState = {}
-  Object.assign(newState, state, {beerData: action.beerData.data, isFetching: false})
-  return newState
+ return Object.assign({}, state, {beerData: action.beerData.data, isFetching: false})
 }
 
 const getBeersByStyle = (state, action) => {
-  const newState = {}
-  Object.assign(newState, state, {styleOfBeerList: action.data.data, isFetching: false});
-  return newState;
+  return Object.assign({}, state, {styleOfBeerList: {[action.id]: action.data.data}, isFetching: false});
 }
 
 export default function app(state = initialState, action) {
@@ -28,7 +24,7 @@ export default function app(state = initialState, action) {
     case GET_BEER_STYLE_DATA:
      return getBeerData(state, action)
     case AJAX_DONE:
-      return { ...state, apiLoad: true};
+      return Object.assign({}, state, {apiLoad: true});
     case GET_BEERS_BY_STYLE:
       return getBeersByStyle(state, action);
     case REQUEST_POSTS:

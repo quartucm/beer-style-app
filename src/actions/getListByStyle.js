@@ -2,11 +2,11 @@ import { GET_BEERS_BY_STYLE, REQUEST_POSTS } from 'constants/action-types';
 import axios from 'axios';
 import apiConfig from '../apiConfig';
 
-
-export function gotListOfBeerByStyle (data) {
+function gotListOfBeerByStyle (data, id) {
   return {
     type: GET_BEERS_BY_STYLE,
-    data
+    data,
+    id
   }
 }
 
@@ -23,7 +23,7 @@ export function getListOfBeerByStyle(id) {
 
         axios.get(`${apiConfig.api}/beerStyle?id=${id}`)
               .then((response) => {
-                dispatch(gotListOfBeerByStyle(response.data));
+                dispatch(gotListOfBeerByStyle(response.data, id));
               })
               .catch((error) => {
                 console.error('Axios Error in getting style of beer', error)

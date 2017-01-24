@@ -4,6 +4,8 @@ import { getStyleOfBeer } from 'actions/getBeerStyle';
 import { getListOfBeerByStyle } from 'actions/getListByStyle';
 import BeerDetail from 'components/BeerDetail/BeerDetail';
 import BeerList from 'components/BeerList/BeerList';
+import Loading from '../components/Loading';
+
 
 const BeerInfo = React.createClass({
 	componentDidMount() {
@@ -17,14 +19,14 @@ const BeerInfo = React.createClass({
     let ShowList = null;
 
     if (this.props.isFetching) {
-      ShowList = <h2>Loading...</h2> 
+      ShowList = <Loading/>
     } else {
       ShowList = <BeerList {...this.props} key={this.props.id}/>
     }
 
     return (
      <div className='row'>
-        <BeerDetail {...this.props.beerData} />
+       <BeerDetail {...this.props.beerData} />
        {ShowList}
      </div>
      );
