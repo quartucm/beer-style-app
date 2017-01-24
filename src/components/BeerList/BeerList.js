@@ -8,11 +8,12 @@ export const BeerList = React.createClass({
 		return (
 			<div className='small-4 columns'>
 				<h5>Beers with this style</h5>
-				{/*this.props.styleOfBeerList.map((beer) => {
+				{console.log(this.props)}
+				{this.props.map((beer) => {
 					return (
 						<p key={beer.id}>{beer.name}</p>
 					)
-				})*/}
+				})}
 			</div>
 		);
 	}

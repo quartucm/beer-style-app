@@ -17,7 +17,7 @@ const BeerInfo = React.createClass({
 		return (
 			<div className='row'>
 				<BeerDetail {...this.props.beerData} />
-				<BeerList {...this.props.styleOfBeerList} id={this.props.id} key={this.props.id}/>
+				<BeerList {...this.props.styleOfBeerList} key={this.props.id}/>
 			</div>
 		);
 	}
