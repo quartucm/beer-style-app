@@ -17,7 +17,7 @@ function gotBeerStyle (data) {
 
 export function getStyleOfBeer() {
 	return function (dispatch, getState) {
-		axios.get(`${apiConfig.api}/beer`)
+		axios.get(`${apiConfig.api}/api/beer`)
 	        .then((response) => {
 	          dispatch(gotBeerStyle(response.data));
 	          dispatch(ajaxComplete())

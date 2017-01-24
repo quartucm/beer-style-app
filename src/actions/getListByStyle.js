@@ -20,8 +20,7 @@ function fetching() {
 export function getListOfBeerByStyle(id) {
       return function (dispatch, getState) {
         dispatch(fetching());
-
-        axios.get(`${apiConfig.api}/beerStyle?id=${id}`)
+        axios.get(`${apiConfig.api}/api/beerStyle?id=${id}`)
               .then((response) => {
                 dispatch(gotListOfBeerByStyle(response.data, id));
               })

@@ -1,8 +1,6 @@
 import path from 'path';
 import express from 'express';
-import request from 'request';
-import config from './server/config';
-import qs from 'qs';
+import { getBeer, getStyle } from './server/beer.js';
 
 const allowed = ['http://localhost:8080', 'https://beer-style-app.herokuapp.com/']
 
@@ -28,31 +26,9 @@ app.get('*', (req, res, next) => {
     next();
 });
 
-app.get('/beer', function(req, res){
-  request.get({ url: `https://api.brewerydb.com/v2/styles?${qs.stringify({
-    format: 'json',
-    key: config.default.API_KEY
-  })}`}, function(error, response, body) { 
-    if (!error && response.statusCode == 200) { 
-      res.send(body); 
-    } 
-  }); 
-});
-app.get('/beerStyle', function(req, res){
-  if(!req.query.id) {
-    res.status(500).send('Error: something went wrong. Please pass in an ID');
-    console.log('Missing an ID!');
-  }
-  request.get({ url: `https://api.brewerydb.com/v2/beers?${qs.stringify({
-    styleId: req.query.id,
-    format: 'json',
-    key: config.default.API_KEY
-  })}`}, function(error, response, body) { 
-    if (!error && response.statusCode == 200) { 
-      res.send(body); 
-    } 
-  }); 
-});
+app.get('/api/beer', getBeer);
+app.get('/api/beerStyle', getStyle);
+
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
