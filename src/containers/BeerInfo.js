@@ -8,19 +8,27 @@ import BeerList from 'components/BeerList/BeerList';
 const BeerInfo = React.createClass({
 	componentDidMount() {
 		if (!this.props.beerData.id) {
-	       this.props.dispatch(getStyleOfBeer());
-	    }
-	    this.props.dispatch(getListOfBeerByStyle(this.props.id));
+      this.props.dispatch(getStyleOfBeer());
+    }
+    this.props.dispatch(getListOfBeerByStyle(this.props.id));
 
-	},
-	render() {
-		return (
-			<div className='row'>
-				<BeerDetail {...this.props.beerData} />
-				<BeerList {...this.props.styleOfBeerList} key={this.props.id}/>
-			</div>
-		);
-	}
+  },
+  render() {
+    let ShowList = null;
+
+    if (this.props.isFetching) {
+      ShowList = <h2>Loading...</h2> 
+    } else {
+      ShowList = <BeerList {...this.props} key={this.props.id}/>
+    }
+
+    return (
+     <div className='row'>
+        <BeerDetail {...this.props.beerData} />
+       {ShowList}
+     </div>
+     );
+  }
 });
 
 function mapStateToProperties(state, ownProps) {
@@ -29,6 +37,7 @@ function mapStateToProperties(state, ownProps) {
   	beerData,
   	id: ownProps.params.id,
   	styleOfBeerList: state.app.styleOfBeerList,
+    isFetching: state.app.isFetching
   };
 }
 

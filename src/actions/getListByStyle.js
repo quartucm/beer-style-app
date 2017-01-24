@@ -1,4 +1,4 @@
-import { GET_BEERS_BY_STYLE } from 'constants/action-types';
+import { GET_BEERS_BY_STYLE, REQUEST_POSTS } from 'constants/action-types';
 import axios from 'axios';
 import apiConfig from '../apiConfig';
 
@@ -10,14 +10,23 @@ export function gotListOfBeerByStyle (data) {
   }
 }
 
+function fetching() {
+  return {
+    type: REQUEST_POSTS,
+  }
+}
+
+
 export function getListOfBeerByStyle(id) {
-	return function (dispatch, getState) {
-		axios.get(`${apiConfig.api}/beerStyle?id=${id}`)
-	        .then((response) => {
-	          dispatch(gotListOfBeerByStyle(response.data));
-	        })
-	        .catch((error) => {
-	          console.error('Axios Error in getting style of beer', error)
-	    })
-	}
+      return function (dispatch, getState) {
+        dispatch(fetching());
+
+        axios.get(`${apiConfig.api}/beerStyle?id=${id}`)
+              .then((response) => {
+                dispatch(gotListOfBeerByStyle(response.data));
+              })
+              .catch((error) => {
+                console.error('Axios Error in getting style of beer', error)
+          })
+      }
 }
