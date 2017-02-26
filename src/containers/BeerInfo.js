@@ -12,22 +12,14 @@ const BeerInfo = React.createClass({
 		if (!this.props.beerData.id) {
       this.props.dispatch(getStyleOfBeer());
     }
-    this.props.dispatch(getListOfBeerByStyle(this.props.id));
 
   },
   render() {
     let ShowList = null;
 
-    if (this.props.isFetching) {
-      ShowList = <Loading/>
-    } else {
-      ShowList = <BeerList {...this.props} key={this.props.id}/>
-    }
-
     return (
      <div className='row'>
        <BeerDetail {...this.props.beerData} />
-       {ShowList}
      </div>
      );
   }

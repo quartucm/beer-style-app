@@ -18,9 +18,9 @@ app.get('/', (req, res) => {
 //CORS
 app.get('*', (req, res, next) => {
   const origin = req.headers.origin;
-  if (allowed.indexOf(origin) > -1) {
-    res.header("Access-Control-Allow-Origin", origin);
-  }
+    if (allowed.indexOf(origin) > -1) {
+      res.header("Access-Control-Allow-Origin", origin);
+    }
     res.header("Access-Control-Allow-Methods", "GET");
     res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers'));
     next();

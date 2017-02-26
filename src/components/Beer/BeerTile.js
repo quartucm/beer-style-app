@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import '!style!css!sass!foundation.scss/foundation.scss';
 import styles from './BeerTileStyle.scss';
 
  

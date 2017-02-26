@@ -1,5 +1,3 @@
-let localConfig = {
-	API_KEY: 'YOUR SECRET API KEY'
-}
-
-export default localConfig
+export default {
+  API_KEY: 'YOUR_SECRET_KEY_HERE'
+};

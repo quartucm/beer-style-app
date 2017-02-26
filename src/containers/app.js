@@ -5,7 +5,6 @@ import Header from '../components/Header/Header';
 import Home from '../components/Home/Home';
 import styles from './app.scss';
 
-
 type Props = {
   dispatch: () => void,
   loaded: boolean
