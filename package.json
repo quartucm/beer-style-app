@@ -75,6 +75,7 @@
     "node-sass": "^4.3.0",
     "null-loader": "^0.1.1",
     "purecss": "^0.6.2",
+    "qs": "^6.3.1",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-redux": "^4.4.6",
@@ -82,6 +83,7 @@
     "redux": "^3.6.0",
     "redux-async-connect": "^1.0.0-rc4",
     "redux-thunk": "^2.1.0",
+    "request": "^2.79.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3"

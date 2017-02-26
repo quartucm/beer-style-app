@@ -1,11 +1,10 @@
-let config = {};
+const config = {};
 
 try {
-    let localConfig = require('./local.config').default;
-    Object.assign(config, localConfig);
-}
-catch (e) {
-    Object.assign(config, {API_KEY: process.env.API_KEY});
+  const localConfig = require('./local.config').default;
+  Object.assign(config, localConfig);
+} catch (e) { 
+  Object.assign(config, {API_KEY: process.env.API_KEY});
 }
 
 module.exports = config;
