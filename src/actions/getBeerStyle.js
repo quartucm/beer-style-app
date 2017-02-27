@@ -20,10 +20,10 @@ export function getStyleOfBeer() {
     axios.get(`${apiConfig.api}/api/beer`)
     .then((response) => {
       dispatch(gotBeerStyle(response.data));
-      dispatch(ajaxComplete())
+      dispatch(ajaxComplete());
     })
     .catch((error) => {
-      console.error('Axios Error in getting style of beer', error)
-    })
+      console.error('Axios Error in getting style of beer', error);
+    });
   };
 }

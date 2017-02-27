@@ -7,12 +7,12 @@ type Props = {
 };
 
 const Layout = (props: Props) => {
-	return (
-		  <div>
-			  <Header/>
-			  {props.children}
-		  </div>
-	)
+  return (
+    <div>
+    <Header/>
+    {props.children}
+    </div>
+    );
 };
 
 export default Layout;

@@ -15,7 +15,7 @@ export class BeerStyleList extends Component {
     if (!this.props.beerData[0]) {
       this.props.dispatch(getStyleOfBeer());
     }
-  };
+  }
 
   props: Props;
 
@@ -27,14 +27,14 @@ export class BeerStyleList extends Component {
            {this.props.beerData.map((beer) => {
               return (
                 <BeerTile {...beer} key={beer.id} />
-                )
+                );
             })}
           </div>
        );
     } else {
       return (
         <Loading/>
-        )
+        );
     }
   }
 }

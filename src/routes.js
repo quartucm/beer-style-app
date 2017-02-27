@@ -1,5 +1,5 @@
 import React from 'react';
-import { Match, Miss, Redirect } from 'react-router';
+import { Match, Miss } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from 'store/index';
 import Layout from 'containers/layout';
