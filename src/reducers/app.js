@@ -1,6 +1,5 @@
 import { APP_LOAD, GET_BEER_STYLE_DATA, AJAX_DONE, GET_BEERS_BY_STYLE, REQUEST_POSTS } from 'constants/action-types';
 
-
 const initialState = {
   loaded: false,
   beerData: {},
@@ -15,7 +14,7 @@ const getBeerData = (state, action) => {
 
 const getBeersByStyle = (state, action) => {
   const beerList = Object.assign( {}, state.styleOfBeerList, {[action.id]: action.data.data} );
-  return Object.assign( {}, state, {styleOfBeerList: beerList}, {isFetching: false} );
+  return Object.assign({}, state, {styleOfBeerList: beerList}, {isFetching: false});
 };
 
 export default function app(state = initialState, action) {

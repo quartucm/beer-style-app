@@ -3,8 +3,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import store from 'store';
 import routes from 'routes';
+//Set some Global SCSS
 import '!style!css!sass!foundation.scss/foundation.scss';
-import 'foundation.scss/foundation.scss'
+import 'foundation.scss/foundation.scss';
 
 render(
   <Provider store={store}>{routes}</Provider>,
