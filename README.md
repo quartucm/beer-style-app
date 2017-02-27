@@ -1,4 +1,4 @@
-#Beer Style App
+# Beer Style App
 
 This is a simple app built using React, Redux and Node. I built this to get a better understanding of React + Redux and it has given me that. Based on this boilerplate: https://github.com/werein/react
 
