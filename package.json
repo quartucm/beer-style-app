@@ -80,7 +80,7 @@
     "react-broadcast": "^0.1.2",
     "react-dom": "^15.4.0",
     "react-redux": "^4.4.6",
-    "react-router": "^4.0.0-alpha.3",
+    "react-router": "4.0.0-alpha.3",
     "redux": "^3.6.0",
     "redux-async-connect": "^1.0.0-rc4",
     "redux-thunk": "^2.1.0",
