@@ -77,6 +77,7 @@
     "purecss": "^0.6.2",
     "qs": "^6.3.1",
     "react": "^15.4.0",
+    "react-broadcast": "^0.1.2",
     "react-dom": "^15.4.0",
     "react-redux": "^4.4.6",
     "react-router": "^4.0.0-alpha.3",
