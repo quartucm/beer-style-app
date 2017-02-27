@@ -23,7 +23,9 @@ render() {
 });
 
 function mapStateToProperties(state, ownProps) {
-  const beerData = state.app.beerData[ownProps.params.id - 1] ? state.app.beerData[ownProps.params.id - 1] : {};
+  const beerData = state.app.beerData[ownProps.params.id - 1] 
+  ? state.app.beerData[ownProps.params.id - 1] 
+  : {};
   return {
     beerData,
     id: ownProps.params.id,

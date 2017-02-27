@@ -6,11 +6,11 @@ export function getBeer(req, res) {
   request.get({ url: `https://api.brewerydb.com/v2/styles?${qs.stringify({
     format: 'json',
     key: config.API_KEY
-  })}` }, function (error, response, body) { 
+  })}` }, function (error, response, body) {
     if (!error && response.statusCode === 200) {
-      res.send(body); 
-    } 
-  }); 
+      res.send(body);
+    }
+  });
 }
 
 export function getStyle(req, res) {
@@ -22,7 +22,7 @@ export function getStyle(req, res) {
     styleId: req.query.id,
     format: 'json',
     key: config.API_KEY
-  })}`}, function (error, response, body) { 
+  })}` }, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       res.send(body);
     }

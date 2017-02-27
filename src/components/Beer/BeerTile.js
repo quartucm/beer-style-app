@@ -8,11 +8,11 @@ const BeerTile = React.createClass({
   render() {
     const { name, description, id } = this.props;
     return (
-      <Link to={`beerInfo/${id}`} className={`small-12 medium-4 columns ${styles.beerTile}`}>
+    <Link to={`beerInfo/${id}`} className={`small-12 medium-4 columns ${styles.beerTile}`}>
         <div>
-        <p>{name}</p>
+          <p>{name}</p>
         </div>
-      </Link>
+    </Link>
       );
   }
 });

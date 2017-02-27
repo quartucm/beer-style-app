@@ -6,9 +6,9 @@ const BeerDetail = React.createClass({
 
     return (
       <div className="small-12 medium-8 columns">
-      <h2>{name}</h2>
-      <p>ibu Range: {ibuMin} - {ibuMax}</p>
-      <p>{description}</p>
+        <h2>{name}</h2>
+        <p>ibu Range: {ibuMin} - {ibuMax}</p>
+        <p>{description}</p>
       </div>
       );
   }

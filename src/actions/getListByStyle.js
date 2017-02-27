@@ -2,7 +2,7 @@ import { GET_BEERS_BY_STYLE, REQUEST_POSTS } from 'constants/action-types';
 import axios from 'axios';
 import apiConfig from '../apiConfig';
 
-function gotListOfBeerByStyle (data, id) {
+function gotListOfBeerByStyle(data, id) {
   return {
     type: GET_BEERS_BY_STYLE,
     data,

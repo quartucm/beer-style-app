@@ -2,13 +2,13 @@ import { GET_BEER_STYLE_DATA, AJAX_DONE } from 'constants/action-types';
 import axios from 'axios';
 import apiConfig from '../apiConfig';
 
-export function ajaxComplete () {
+export function ajaxComplete() {
   return {
     type: AJAX_DONE
   };
 }
 
-function gotBeerStyle (data) {
+function gotBeerStyle(data) {
   return {
     type: GET_BEER_STYLE_DATA,
     beerData: data
