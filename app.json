@@ -1,13 +1,14 @@
 {
-  "name": "react",
+  "name": "Beer Style App",
   "description": "A React app using Express",
   "keywords": [
     "node",
     "react",
-    "express"
+    "express",
+    "beer"
   ],
-  "website": "https://wereinhq.com/guides/react",
-  "repository": "https://github.com/werein/react",
+  "website": "https://beer-style-app.herokuapp.com/",
+  "repository": "https://github.com/quartucm/beer-style-app",
   "success_url": "/",
   "env": {
     "PORT": {
