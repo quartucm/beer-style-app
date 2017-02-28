@@ -19,6 +19,12 @@ To get your local backend to work, you will need to
  - Add your API key to server/local.config.sample.js
  - Rename local.config.sample.js to local.config.js
 
+For Production Deployment 
+ - You will need to modify config.js
+ - Currently it pulls in Heroku ENV variable `process.env.API_KEY`
+ - Change it as needed.
+
+
 Full warning: This is a Proof of Concept and is by no means ready for production.
 
 To do:
